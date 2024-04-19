@@ -15,17 +15,13 @@ class DocumentService(object):
         self.docs_path = docs_path
 
     def init_source_vector(self, add_path=[]):
-        """
-        初始化本地知识库向量
-        :return:
-        """
         if add_path:
             self.docs_path = self.docs_path + add_path
         split_text = self.load_file()
         # 采用embeding模型对文本进行向量化
         vector_store = FAISS.from_documents(split_text, self.embeddings)
         return vector_store
-        # 把结果存到faiss索引里面
+
         # self.vector_store.save_local(self.vector_store_path)
 
     # def load_vector_store(self):

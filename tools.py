@@ -27,12 +27,8 @@ from langchain.agents import initialize_agent, Tool
 
 ret = DocumentService(docs_path=["data/FaustHsu_Report.pdf"])
 # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-# chatQA = ConversationalRetrievalChain.from_llm(
-#             ChatOpenAI(),
-#             ret.init_source_vector().as_retriever(),
-#             memory=memory)
-# chatQA
-fileretriver = VectorStoreQATool(vectorstore=ret.init_source_vector(), name="XYZFILE", description="XYZFILE")
+
+
 fileretriver = Tool(
     func=RetrievalQA.from_chain_type(
         llm=ChatOpenAI(), chain_type="stuff", retriever=ret.init_source_vector().as_retriever()
