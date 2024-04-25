@@ -1,0 +1,14 @@
+langchain-openai==0.1.3
+openai==1.19.0
+langsmith==0.1.50
+langchainhub==0.1.15
+langchain==0.1.16
+langchain-community==0.0.34
+langchain-core==0.1.45
+langchain-text-splitters==0.0.1
+langchainhub==0.1.15
+transformers==4.33.1
+torch==2.1.2
+faiss-cpu
+wikipedia==1.4.0
+pdfplumber==0.11.0

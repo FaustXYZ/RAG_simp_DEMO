@@ -3,3 +3,5 @@ setting.json
 launch.json
 
 *.pyc
+.DS_Store
+*.csv
