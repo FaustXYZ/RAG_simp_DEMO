@@ -26,7 +26,7 @@ from langchain.chat_models.openai import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
 
 ret = DocumentService(
-    docs_path=["/Users/xuyizhou/Desktop/xyz_warehouse/github/RAG_simp_DEMO/data/FaustHsu_Report.pdf"]
+    docs_path=["./data/FaustHsu_Report.pdf"]
 )
 # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
