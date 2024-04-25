@@ -1,10 +1,10 @@
-from langchain.document_loaders import UnstructuredFileLoader, TextLoader, DirectoryLoader, PDFPlumberLoader
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.document_loaders.pdf import PDFPlumberLoader
+from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import PDFPlumberLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain_core.tools import BaseTool
+
+# from langchain_core.tools import BaseTool
 
 
 class DocumentService(object):

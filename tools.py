@@ -18,21 +18,22 @@ wikitool = WikipediaQueryRun(api_wrapper=api_wrapper)
 wikitool.description = "A wrapper around Wikipedia. Useful for when you need to answer general question about definition and the description of people, place, facts, history etc."
 
 # from langchain.chains import combine_documents,create_retrieval_chain,RetrievalQA,create_history_aware_retriever,ConversationChain
-from vector_module import FileTool, DocumentService
+from vector_module import DocumentService
 from langchain_community.tools.vectorstore.tool import VectorStoreQATool
-from langchain.chains import ConversationalRetrievalChain, RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models.openai import ChatOpenAI
 from langchain.agents import initialize_agent, Tool
 
-ret = DocumentService(docs_path=["data/FaustHsu_Report.pdf"])
+ret = DocumentService(
+    docs_path=["/Users/xuyizhou/Desktop/xyz_warehouse/github/RAG_simp_DEMO/data/FaustHsu_Report.pdf"]
+)
 # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-
 
 fileretriver = Tool(
     func=RetrievalQA.from_chain_type(
         llm=ChatOpenAI(), chain_type="stuff", retriever=ret.init_source_vector().as_retriever()
-    ).run,
+    ),
     name="Faust report",
     description="Useful when you need to answer questions about Faust report",
 )
