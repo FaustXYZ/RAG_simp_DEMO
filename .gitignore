@@ -1,3 +1,5 @@
 .env
 setting.json
 launch.json
+
+*.pyc
